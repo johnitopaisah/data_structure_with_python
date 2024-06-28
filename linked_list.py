@@ -29,6 +29,32 @@ class linked_list:
             curr_node = curr_node.next
             elems.append(curr_node.data)
         print(elems)
+    
+    def get(self, index):
+        if index > self.length():
+            print("ERROR: 'Get' Index out of range")
+            return
+        curr_node = self.head
+        count = 0
+        while True:
+            curr_node = curr_node.next
+            if count == index:
+                return curr_node.data
+            count += 1
+    
+    def remove(self, index):
+        if index >= self.length():
+            print("ERROR: 'Remove' Index is out of range")
+            return
+        curr_indx = 0
+        curr_node = self.head
+        while True:
+            last_node = curr_node
+            curr_node = curr_node.next
+            if index == curr_indxindx:
+                last_node.next = curr_node.next
+                return
+            index += 1
 
 
 my_list = linked_list()
@@ -38,4 +64,6 @@ my_list.append(2)
 my_list.append(3)
 my_list.append(4)
 my_list.append(5)
+my_list.display()
+my_list.remove(3)
 my_list.display()
